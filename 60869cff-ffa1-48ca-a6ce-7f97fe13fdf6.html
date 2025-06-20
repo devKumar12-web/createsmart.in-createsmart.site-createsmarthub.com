@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base target="_self">
+  <title>Social Media Creator Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script>
+    // Dark mode toggle
+    document.addEventListener("DOMContentLoaded", () => {
+      const darkModeToggle = document.getElementById("darkModeToggle");
+      const currentTheme = localStorage.getItem("theme");
+      
+      if (currentTheme === "dark") {
+        document.documentElement.classList.add("dark");
+        darkModeToggle.checked = true;
+      }
+
+      darkModeToggle.addEventListener("change", () => {
+        if (darkModeToggle.checked) {
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      // Handle all anchor links with JS
+      document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          const href = link.getAttribute("href");
+          if (href.startsWith("#")) {
+            document.querySelector(href).scrollIntoView({ behavior: "smooth" });
+          } else {
+            window.location.href = href;
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 bg-white dark:bg-gray-800 shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-bolt text-blue-600 dark:text-blue-400 text-xl"></i>
+        <h1 class="text-xl font-bold">CreateSmart</h1>
+      </div>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#trending" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Trending Ideas</a>
+        <a href="#tutorials" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Tutorials</a>
+        <a href="#tools" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Tools</a>
+        <a href="#community" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Community</a>
+      </nav>
+      <div class="flex items-center space-x-4">
+        <button id="darkModeToggle" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:block"></i>
+        </button>
+        <a href="#login" class="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-10 dark:opacity-20"></div>
+    <div class="container mx-auto px-4 py-20 relative z-10 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Create Smarter, Not Harder</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10">
+        Discover trending ideas, master content creation, and leverage AI tools to boost your social media presence.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#trending" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full transition transform hover:scale-105">
+          <i class="fas fa-fire mr-2"></i> Trending Ideas
+        </a>
+        <a href="#tutorials" class="bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-800 dark:text-white px-8 py-3 rounded-full transition transform hover:scale-105">
+          <i class="fas fa-play mr-2"></i> Tutorials
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Ideas Section -->
+  <section id="trending" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-bold mb-4">🔥 Trending Ideas</h3>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Stay ahead of the curve with these trending content formats and topics.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Trending Card -->
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105">
+          <img src="https://picsum.photos/400/250" alt="Trending Idea 1" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-2">AI-Generated Art</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Create stunning visuals using AI tools like DALL·E and MidJourney.
+            </p>
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Learn More →</a>
+          </div>
+        </div>
+        <!-- Repeat cards -->
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105">
+          <img src="https://picsum.photos/401/250" alt="Trending Idea 2" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-2">Short-Form Video Series</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Master TikTok and Reels with engaging, bite-sized content.
+            </p>
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Learn More →</a>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105">
+          <img src="https://picsum.photos/402/250" alt="Trending Idea 3" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-2">Interactive Content</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Use polls, quizzes, and Q&A sessions to boost engagement.
+            </p>
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Learn More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tutorials Section -->
+  <section id="tutorials" class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-bold mb-4">🎥 Master Content Creation</h3>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Step-by-step guides to create professional-grade content.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Tutorial Card -->
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105">
+          <div class="relative">
+            <img src="https://picsum.photos/400/250" alt="Tutorial 1" class="w-full h-48 object-cover" />
+            <div class="absolute top-3 right-3 bg-blue-600 text-white text-sm px-3 py-1 rounded-full">Beginner</div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-2">How to Use Canva for Social Media</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Learn to design eye-catching posts, stories, and banners in minutes.
+            </p>
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Watch Tutorial →</a>
+          </div>
+        </div>
+        <!-- Repeat cards -->
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105">
+          <div class="relative">
+            <img src="https://picsum.photos/401/250" alt="Tutorial 2" class="w-full h-48 object-cover" />
+            <div class="absolute top-3 right-3 bg-yellow-500 text-white text-sm px-3 py-1 rounded-full">Intermediate</div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-2">Advanced Instagram Story Tips</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Create interactive and engaging stories that convert followers.
+            </p>
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Watch Tutorial →</a>
+          </div>
+        </div>
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden transform transition hover:scale-105">
+          <div class="relative">
+            <img src="https://picsum.photos/402/250" alt="Tutorial 3" class="w-full h-48 object-cover" />
+            <div class="absolute top-3 right-3 bg-green-500 text-white text-sm px-3 py-1 rounded-full">Advanced</div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-xl font-bold mb-2">TikTok Algorithm Secrets</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+              Discover how to maximize reach and virality on TikTok.
+            </p>
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Watch Tutorial →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools Section -->
+  <section id="tools" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-bold mb-4">🛠️ Essential Tools</h3>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Boost your productivity with these must-have tools for creators.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Tool Card -->
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 text-center transform transition hover:scale-105">
+          <div class="text-blue-600 text-3xl mb-4">
+            <i class="fas fa-camera"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-2">Canva</h4>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Design stunning graphics for all platforms.
+          </p>
+          <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Visit Website</a>
+        </div>
+        <!-- Repeat cards -->
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 text-center transform transition hover:scale-105">
+          <div class="text-purple-600 text-3xl mb-4">
+            <i class="fas fa-video"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-2">CapCut</h4>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Edit professional videos with AI features.
+          </p>
+          <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Visit Website</a>
+        </div>
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 text-center transform transition hover:scale-105">
+          <div class="text-green-600 text-3xl mb-4">
+            <i class="fas fa-microphone"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-2">Descript</h4>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Edit audio and video with voice-to-text.
+          </p>
+          <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Visit Website</a>
+        </div>
+        <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 text-center transform transition hover:scale-105">
+          <div class="text-red-600 text-3xl mb-4">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-2">Hootsuite</h4>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">
+            Schedule and analyze your social media posts.
+          </p>
+          <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline">Visit Website</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Section -->
+  <section id="community" class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-bold mb-4">👥 Join the Creator Community</h3>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Connect with other creators, share ideas, and grow together.
+        </p>
+      </div>
+      <div class="max-w-2xl mx-auto bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 text-center">
+        <h4 class="text-xl font-bold mb-4">Stay Updated with Our Newsletter</h4>
+        <p class="text-gray-600 dark:text-gray-300 mb-6">
+          Get weekly tips, trends, and tutorials delivered to your inbox.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-4">
+          <input type="email" placeholder="Enter your email" class="px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h4 class="text-xl font-bold mb-4">CreateSmart</h4>
+          <p class="text-gray-400 mb-4">
+            Empowering social media creators with tools, tutorials, and community.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-facebook-f text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-twitter text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition">
+              <i class="fab fa-youtube text-xl"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#trending" class="text-gray-400 hover:text-white transition">Trending Ideas</a></li>
+            <li><a href="#tutorials" class="text-gray-400 hover:text-white transition">Tutorials</a></li>
+            <li><a href="#tools" class="text-gray-400 hover:text-white transition">Tools</a></li>
+            <li><a href="#community" class="text-gray-400 hover:text-white transition">Community</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition">Cookie Policy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Contact</h4>
+          <p class="text-gray-400 mb-2">support@createsmart.com</p>
+          <p class="text-gray-400">+1 (555) 123-4567</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-6 text-center text-gray-400">
+        <p>&copy; 2024 CreateSmart. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
